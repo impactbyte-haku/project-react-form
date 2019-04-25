@@ -1,7 +1,7 @@
 import React from 'react'
 export class MyForm extends React.Component {
   state = {
-    value: ''
+    value: 'Alpha Avalon'
   }
 
   handleChange = event => {
@@ -11,23 +11,27 @@ export class MyForm extends React.Component {
   }
 
   handleSubmit = event => {
-    alert(`Name: ${this.state.value}`)
     event.preventDefault()
+    alert(`Name: ${this.state.value}`)
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
+        <fieldset>
+          <label>Name:</label>
           <input
             type="text"
             value={this.state.value}
             onChange={this.handleChange}
           />
-        </label>
+        </fieldset>
 
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit Name" />
+
+        <pre>
+          <code>{this.state.value}</code>
+        </pre>
       </form>
     )
   }
